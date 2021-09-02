@@ -7,7 +7,7 @@ import com.example.githubuser.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDetailBinding
+    val binding: ActivityDetailBinding by lazy {ActivityDetailBinding.inflate(layoutInflater)}
 
     companion object{
         const val DATA_EXTRA = "data extra"
@@ -15,15 +15,15 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
         supportActionBar?.hide() // menyembunyikan action bar
-        val dataParcel = intent.getParcelableExtra<UsersItem>(DATA_EXTRA)
+        val dataParcel by lazy {intent.getParcelableExtra<UsersItem>(DATA_EXTRA)}
+//        val dataParcel = intent.getParcelableExtra<UsersItem>(DATA_EXTRA)
         val potoInt = resources.getIdentifier(dataParcel.avatar, null, packageName)
 
-        with(binding){
+        with(binding) {
             tvName.text = dataParcel.name
             tvUsername.text = dataParcel.username
             imgPhoto.setImageResource(potoInt)
@@ -32,19 +32,21 @@ class DetailActivity : AppCompatActivity() {
             tvRepository.text = dataParcel.repository.toString()
             tvFollower.text = dataParcel.follower.toString()
             tvFollowing.text = dataParcel.following.toString()
-        }
 
-        binding.btnBack.setOnClickListener{
-            finish()
-        }
-        binding.tvUsername.setOnClickListener {
-            Toast.makeText(applicationContext, "intent ke web github", Toast.LENGTH_SHORT).show()
-        }
-        binding.tvCompany.setOnClickListener {
-            Toast.makeText(applicationContext, "intent ke web perusahaan", Toast.LENGTH_SHORT).show()
-        }
-        binding.tvLocation.setOnClickListener {
-            Toast.makeText(applicationContext, "intent ke maps", Toast.LENGTH_SHORT).show()
+            btnBack.setOnClickListener {
+                finish()
+            }
+            tvUsername.setOnClickListener {
+                Toast.makeText(applicationContext, "intent ke web github", Toast.LENGTH_SHORT)
+                    .show()
+            }
+            tvCompany.setOnClickListener {
+                Toast.makeText(applicationContext, "intent ke web perusahaan", Toast.LENGTH_SHORT)
+                    .show()
+            }
+            tvLocation.setOnClickListener {
+                Toast.makeText(applicationContext, "intent ke maps", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.githubuser.DetailActivity.Companion.DATA_EXTRA
 import com.example.githubuser.databinding.UserAdapterBinding
 
 class UserAdapter(private val dataUser: DataModel): RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
@@ -21,7 +22,7 @@ class UserAdapter(private val dataUser: DataModel): RecyclerView.Adapter<UserAda
 
         holder.binding.rvItemCardview.setOnClickListener{
             val intent = Intent(holder.itemView.context, DetailActivity::class.java)
-            intent.putExtra(DetailActivity.DATA_EXTRA, dataUser)
+            intent.putExtra(DATA_EXTRA, dataUser)
             holder.itemView.context.startActivity(intent)
         }
     }
@@ -31,11 +32,11 @@ class UserAdapter(private val dataUser: DataModel): RecyclerView.Adapter<UserAda
     inner class UserViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val binding = UserAdapterBinding.bind(view)
 
-        internal fun bind(data: UsersItem?){
+        internal fun bind(data: UsersItem?) = with(binding){
             val potoInt = itemView.resources.getIdentifier(data?.avatar, null, itemView.context.packageName)
-            binding.gambarItem.setImageResource(potoInt)
-            binding.tvName.text = data?.name
-            binding.tvUsername.text = data?.username
+            gambarItem.setImageResource(potoInt)
+            tvName.text = data?.name
+            tvUsername.text = data?.username
         }
     }
 }
