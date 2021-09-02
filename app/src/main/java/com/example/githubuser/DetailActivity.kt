@@ -7,9 +7,9 @@ import com.example.githubuser.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
 
-    val binding: ActivityDetailBinding by lazy {ActivityDetailBinding.inflate(layoutInflater)}
+    val binding: ActivityDetailBinding by lazy { ActivityDetailBinding.inflate(layoutInflater) }
 
-    companion object{
+    companion object {
         const val DATA_EXTRA = "data extra"
     }
 
@@ -19,8 +19,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(view)
 
         supportActionBar?.hide() // menyembunyikan action bar
-        val dataParcel by lazy {intent.getParcelableExtra<UsersItem>(DATA_EXTRA)}
-//        val dataParcel = intent.getParcelableExtra<UsersItem>(DATA_EXTRA)
+        val dataParcel by lazy { intent.getParcelableExtra<UsersItem>(DATA_EXTRA) }
         val potoInt = resources.getIdentifier(dataParcel.avatar, null, packageName)
 
         with(binding) {

@@ -8,10 +8,10 @@ import com.google.gson.GsonBuilder
 
 class MainActivity : AppCompatActivity() {
 
-    val binding by lazy{ActivityMainBinding.inflate(layoutInflater)}
+    val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private lateinit var data: DataModel
 
-    private fun setActionBar(title: String){
+    private fun setActionBar(title: String) {
         supportActionBar?.title = title
     }
 
@@ -29,13 +29,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun showUser(data: DataModel)= with(binding){
+    private fun showUser(data: DataModel) = with(binding) {
         rvUser.layoutManager = LinearLayoutManager(this@MainActivity)
         val orang = UserAdapter(data)
         rvUser.adapter = orang
     }
 
-    private fun jsonConverter(){
+    private fun jsonConverter() {
         val jsonRes = DataJson().jsonRes
         val gson = GsonBuilder().create()
         data = gson.fromJson(jsonRes, DataModel::class.java)

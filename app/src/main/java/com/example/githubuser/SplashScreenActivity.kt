@@ -13,6 +13,7 @@ class SplashScreenActivity : AppCompatActivity() {
         supportActionBar?.hide() // menyembunyikan action bar
         Handler().postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
-            finish()}, 3000) //menampilkan logo splashscreen
+            finish()
+        }, 3000) //menampilkan logo splashscreen
     }
 }
