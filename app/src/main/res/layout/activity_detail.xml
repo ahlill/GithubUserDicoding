@@ -9,176 +9,97 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="260dp"
         android:background="@drawable/image_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/ic_back"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgPhoto"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:civ_border_color="#28F308"
+        app:civ_border_width="0.8dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgPhoto"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            app:civ_border_color="#28F308"
-            app:civ_border_width="0.8dp"
-            tools:src="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="center"
-            android:text="nama orang"
-            android:textSize="14sp"
-            tools:text="Nama" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgPhoto" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="-40dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
+        android:id="@+id/layout_id"
+        style="@style/card_info2"
+        android:background="#FFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#F3F4F4"
-            android:orientation="horizontal"
-            android:padding="10dp">
+        <TextView
+            android:id="@+id/tv_id"
+            style="@style/card_info2_text"
+            app:drawableLeftCompat="@drawable/ic_username" />
+    </androidx.cardview.widget.CardView>
 
-            <LinearLayout style="@style/card_info">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layout_web"
+        style="@style/card_info2"
+        android:background="#fff"
+        app:layout_constraintEnd_toEndOf="@+id/layout_id"
+        app:layout_constraintStart_toStartOf="@+id/layout_id"
+        app:layout_constraintTop_toBottomOf="@id/layout_id"
+        tools:layout_editor_absoluteY="215dp">
 
-                <TextView
-                    style="@style/card_info_text_name"
-                    android:text="Repository" />
-
-                <TextView
-                    android:id="@+id/tvRepository"
-                    style="@style/card_info_text"
-                    android:text="10" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="16dp"
-                android:layout_height="match_parent" />
-
-            <LinearLayout style="@style/card_info">
-
-                <TextView
-                    style="@style/card_info_text_name"
-                    android:text="Follower" />
-
-                <TextView
-                    android:id="@+id/tvFollower"
-                    style="@style/card_info_text"
-                    android:text="10" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="16dp"
-                android:layout_height="match_parent" />
-
-            <LinearLayout style="@style/card_info">
-
-                <TextView
-                    style="@style/card_info_text_name"
-                    android:text="Following" />
-
-                <TextView
-                    android:id="@+id/tvFollowing"
-                    style="@style/card_info_text"
-                    android:text="10" />
-            </LinearLayout>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_web"
+            style="@style/card_info2_text"
+            app:drawableLeftCompat="@drawable/ic_baseline_analytics_24" />
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/btnBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/view">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:tabTextColor="@color/white" />
 
-            <LinearLayout
-                style="@style/card_info2"
-                android:background="#fff">
-
-                <ImageView
-                    style="@style/card_info2_gambar"
-                    android:src="@drawable/ic_username" />
-
-                <TextView
-                    android:id="@+id/tvUsername"
-                    style="@style/card_info2_text"
-                    android:text="Username" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/card_info2"
-                android:background="#fff">
-
-                <ImageView
-                    style="@style/card_info2_gambar"
-                    android:src="@drawable/ic_company" />
-
-                <TextView
-                    android:id="@+id/tvCompany"
-                    style="@style/card_info2_text"
-                    android:text="Company" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/card_info2"
-                android:background="#fff">
-
-                <ImageView
-                    style="@style/card_info2_gambar"
-                    android:src="@drawable/ic_location" />
-
-                <TextView
-                    android:id="@+id/tvLocation"
-                    style="@style/card_info2_text"
-                    android:text="Location" />
-            </LinearLayout>
-
-        </LinearLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="30dp"
-        android:text="back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

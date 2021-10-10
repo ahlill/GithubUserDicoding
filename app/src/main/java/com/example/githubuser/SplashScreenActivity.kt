@@ -3,17 +3,26 @@ package com.example.githubuser
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
+import androidx.lifecycle.lifecycleScope
+import com.example.githubuser.databinding.ActivitySplashScreenBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SplashScreenActivity : AppCompatActivity() {
+
+    private val binding by lazy { ActivitySplashScreenBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        setContentView(binding.root)
 
-        supportActionBar?.hide() // menyembunyikan action bar
-        Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+        supportActionBar?.hide()
+
+        lifecycleScope.launch {
+            delay(3000)
+            val i = Intent(this@SplashScreenActivity, MainActivity::class.java)
+            startActivity(i)
             finish()
-        }, 3000) //menampilkan logo splashscreen
+        }
     }
 }
