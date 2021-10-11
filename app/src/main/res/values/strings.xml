@@ -7,11 +7,26 @@
     <string name="no_data_following">tidak ada following</string>
     <string name="no_data_follower">tidak ada follower</string>
     <string name="no_data_search">tidak ada data</string>
+    <string name="search_data">cari data</string>
     <string name="search_hint">cari</string>
     <string name="icon">icon</string>
     <string name="profile">profile</string>
     <string name="search">search</string>
     <string name="info">info</string>
+    <string name="favorite">favorite</string>
+    <string name="yes">ya</string>
+    <string name="no">tidak</string>
     <string name="settings">settings</string>
+    <string name="massage_dialog">Yakin ingin menghapus ?</string>
+    <string name="title_dialog">Peringatan</string>
+    <string name="no_data_favorite">kosong</string>
+    <string name="dark_mode">mode</string>
+
+    <string name="add_success">berhasil menambahkan favorit</string>
+    <string name="whatsapp">whatsapp</string>
+    <string name="facebook">facebook</string>
+    <string name="twitter">twitter</string>
+    <string name="fab_favorite">fab_favorite</string>
+
 
 </resources>

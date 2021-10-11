@@ -60,6 +60,9 @@ dependencies {
     def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
+    //interceptor
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
@@ -70,13 +73,18 @@ dependencies {
     //Circle Image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    //interceptor
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
-
-    //KTX untuk ViewModel activity
+    //KTX untuk ViewModel
     implementation "androidx.activity:activity-ktx:1.3.1"
-
-    //KTX untuk ViewModel fragment
     implementation "androidx.fragment:fragment-ktx:1.3.6"
+
+    // database
+    implementation 'androidx.room:room-runtime:2.3.0'
+    kapt 'androidx.room:room-compiler:2.3.0'
+
+    // datastore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    // livedata
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
 
 }

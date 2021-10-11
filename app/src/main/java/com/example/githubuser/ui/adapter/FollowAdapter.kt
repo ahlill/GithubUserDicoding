@@ -1,4 +1,4 @@
-package com.example.githubuser
+package com.example.githubuser.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,14 +8,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.githubuser.api.ItemsItem
 import com.example.githubuser.databinding.UserAdapterBinding
 
-class UserAdapter(private val dataUsers: List<ItemsItem>?) :
-        RecyclerView.Adapter<UserAdapter.ViewHolder>() {
-
-    private lateinit var onItemClickCallback: OnItemClickCallback
-
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
-    }
+class FollowAdapter(private val dataUsers: List<ItemsItem>?) : RecyclerView.Adapter<FollowAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
             UserAdapterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -25,13 +18,11 @@ class UserAdapter(private val dataUsers: List<ItemsItem>?) :
 
         val user = dataUsers?.get(position)
         holder.bind(user)
-
-        holder.itemView.setOnClickListener { onItemClickCallback.onClicked(user) }
     }
 
     override fun getItemCount(): Int = dataUsers?.size ?: 0
 
-    class ViewHolder(private var binding: UserAdapterBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: UserAdapterBinding) : RecyclerView.ViewHolder(binding.root) {
 
         internal fun bind(data: ItemsItem?) = with(binding) {
 
@@ -44,9 +35,5 @@ class UserAdapter(private val dataUsers: List<ItemsItem>?) :
             tvId.text = data?.id.toString()
 
         }
-    }
-
-    interface OnItemClickCallback {
-        fun onClicked(user: ItemsItem?)
     }
 }

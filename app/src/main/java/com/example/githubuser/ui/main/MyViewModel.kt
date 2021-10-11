@@ -1,11 +1,11 @@
-package com.example.githubuser
+package com.example.githubuser.ui.main
 
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.githubuser.api.ApiConfiq
+import com.example.githubuser.api.ApiConfig
 import com.example.githubuser.api.DataModel
 import com.example.githubuser.api.ItemsItem
 import retrofit2.Call
@@ -34,7 +34,7 @@ class MyViewModel : ViewModel() {
 
     fun findDataSearches(username: String?) {
         _isLoading.value = true
-        val client = ApiConfiq.getApiSearches().getSearches(username)
+        val client = ApiConfig.getApiSearches().getSearches(username)
         client.enqueue(object : Callback<DataModel> {
             override fun onResponse(
                     call: Call<DataModel>,
@@ -58,7 +58,7 @@ class MyViewModel : ViewModel() {
 
     fun findDataFollowings(username: String?) {
         _isLoadingFollowings.value = true
-        val client = ApiConfiq.getApiFollowings().getFollowings(username)
+        val client = ApiConfig.getApiFollowings().getFollowings(username)
         client.enqueue(object : Callback<List<ItemsItem>> {
             override fun onResponse(
                     call: Call<List<ItemsItem>>,
@@ -81,7 +81,7 @@ class MyViewModel : ViewModel() {
 
     fun findDataFollowers(username: String?) {
         _isLoadingFollowers.value = true
-        val client = ApiConfiq.getApiFollowers().getFollowers(username)
+        val client = ApiConfig.getApiFollowers().getFollowers(username)
         client.enqueue(object : Callback<List<ItemsItem>> {
             override fun onResponse(
                     call: Call<List<ItemsItem>>,

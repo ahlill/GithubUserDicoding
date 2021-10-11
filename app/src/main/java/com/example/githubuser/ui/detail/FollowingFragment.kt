@@ -1,4 +1,4 @@
-package com.example.githubuser
+package com.example.githubuser.ui.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.githubuser.ui.main.MyViewModel
 import com.example.githubuser.api.ItemsItem
 import com.example.githubuser.databinding.FragmentFollowingBinding
+import com.example.githubuser.ui.adapter.FollowAdapter
 
 class FollowingFragment : Fragment() {
 
@@ -55,7 +57,7 @@ class FollowingFragment : Fragment() {
     private fun showFollowings(dataFollowings: List<ItemsItem>) = with(binding) {
         rvFollowing.layoutManager = LinearLayoutManager(context)
         rvFollowing.setHasFixedSize(true)
-        val adapter = UserAdapter(dataFollowings)
+        val adapter = FollowAdapter(dataFollowings)
         rvFollowing.adapter = adapter
         adapter.notifyDataSetChanged()
     }
